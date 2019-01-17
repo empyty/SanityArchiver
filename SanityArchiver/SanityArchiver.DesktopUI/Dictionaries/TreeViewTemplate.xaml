@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="DriveTemplate">
+        <StackPanel>
+            <Image Source="{Binding Converter={StaticResource FolderImageConverter}}"/>
+            <TextBlock Text="{Binding Path=Header}"/>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

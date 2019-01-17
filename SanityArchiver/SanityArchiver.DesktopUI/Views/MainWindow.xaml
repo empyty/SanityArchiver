@@ -1,0 +1,36 @@
+﻿<Window x:Class="SanityArchiver.DesktopUI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" DataContext="{StaticResource MainWindowDataContext}"
+        Title="Sanity Archiver" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="SearchBar" Grid.Column="0" Grid.Row="0">
+            <TextBox Style="{StaticResource SearchBoxStyle}"/>
+        </Grid>
+
+        <Grid x:Name="TitleBar" Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="{Binding FolderName, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+        </Grid>
+
+        <Grid x:Name="FolderView" Grid.Column="0" Grid.Row="1">
+            <TreeView ItemsSource="{Binding Directories}" ItemTemplate="{StaticResource DriveTemplate}"/>
+        </Grid>
+
+        <Grid x:Name="FileView" Grid.Column="1" Grid.Row="1">
+            <ListBox ItemsSource="{Binding Files}" ItemTemplate="{StaticResource FileViewTemplate}"/>
+        </Grid>
+        
+    </Grid>
+</Window>
